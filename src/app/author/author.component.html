@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-10">
+        <div *ngIf="!error">
+        <div class="row"><h2 class="h2_css">Author List</h2><button class="btn btn-primary create_btn_css" routerLink="/create-author">Add Author</button></div>
+        <table>
+            <tr>
+              <th>Sr.no</th>
+              <th>Author Name</th>
+              <th>Author Username</th>
+              <th>Created At</th>
+            </tr>
+            <tr *ngFor="let author of authors; index as i;">
+              <td>{{i+1}}</td>  
+              <td>{{author.name}}</td>
+              <td>{{author.username}}</td>
+              <td>{{author.createdat}}</td>
+            </tr>
+          </table>
+        </div>
+        <div *ngIf="error">
+            <p class="text-danger text-center">{{ errorMessage }}</p>
+        </div>
+      </div>
+    </div>
+      
+        
+  </div> 
+  
+  

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10">
+      <div *ngIf="!error">
+      <div class="row"><h2 class="h2_css">Books with Author List</h2><button class="btn btn-primary create_btn_css" routerLink="/create-books">Add Books</button><div>
+        <div class="row" style="margin-bottom: 10px;">
+          <div class="col-xs-4">
+            <label for="type">Type</label>
+                    <select
+                      id="type" 
+                      (change)='onOptionsSelected($event)'
+                      class="form-control">
+                      <option value="books">Books</option>
+                      <option value="description">Description</option>
+                      <option value="author">Author</option>
+                      <option value="price">Price</option>
+                      <option value="quantity">Quantity</option>
+                    </select>
+          </div>
+          <div class="col-xs-8">
+            <label for="search">Search</label>
+            <input class="form-control" type="text" id="search" (keyup)=onKeyUpEvent($event)>
+          </div>
+        </div>
+      <table>
+          <tr>
+            <th>Sr.no</th>
+            <th>Book Name</th>
+            <th>Author Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+          <tr *ngFor="let book of books ; let i = index;">
+            <td>{{i+1}}</td>  
+            <td>{{book.name}}</td>
+            <td>{{book.author.name}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.quantity}}</td>
+            
+          </tr>
+          
+        </table>
+      </div>
+      <div *ngIf="error">
+          <p class="text-danger text-center">{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+    
+      
+</div> 
+

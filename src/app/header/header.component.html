@@ -1,0 +1,12 @@
+
+<div class="topnav navbar-default" id="myTopnav">
+  <a ><a href="#">Book Store</a></a>
+  <a routerLinkActive="active"><a routerLink="/books">Book List</a></a>
+  <a routerLinkActive="active"><a routerLink="/author">Author List</a></a>
+  <a routerLink="/login" style="float: right;" *ngIf="!authService.loggedIn">Login</a>
+  <a (click)="logout()" style="float: right;" *ngIf="authService.loggedIn">Logout</a>
+  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+

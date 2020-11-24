@@ -1,0 +1,96 @@
+<div class="container">
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="createBookForm" (ngSubmit)="onSubmit()">
+            <div class="col-xs-10">
+            <h4>Add Books</h4><button class="btn btn-primary create_btn_css" routerLink="/books">Books List</button>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      placeholder="name"
+                      formControlName="name"
+                      class="form-control">
+                      <span class="text-danger" *ngIf="createBookForm.controls['name'].touched && createBookForm.controls['name'].hasError('required')">
+                        Name  field is required</span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea
+                      type="text"
+                      id="description"
+                      placeholder="description"
+                      formControlName="description"
+                      class="form-control"></textarea>
+                      <span class="text-danger" *ngIf="createBookForm.controls['description'].touched && createBookForm.controls['description'].hasError('required')">
+                        Description  field is required</span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <div class="form-group">
+                    <label for="author">Author</label>
+                    <select
+                      type="text"
+                      id="author"
+                      formControlName="author"
+                      class="form-control">
+                      <option *ngFor="let author of authors" value={{author.id}}>{{author.name}}</option>
+                      <!-- <option>2</option> -->
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <input
+                      type="number"
+                      id="price"
+                      placeholder="price"
+                      formControlName="price"
+                      class="form-control">
+                      <span class="text-danger" *ngIf="createBookForm.controls['price'].touched && createBookForm.controls['price'].hasError('required')">
+                        Price  field is required</span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <input
+                      type="number"
+                      id="quantity"
+                      placeholder="quantity"
+                      formControlName="quantity"
+                      class="form-control">
+                      <span class="text-danger" *ngIf="createBookForm.controls['quantity'].touched && createBookForm.controls['quantity'].hasError('required')">
+                        Quantity  field is required</span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10">
+                  <button
+                    type="submit"
+                    class="btn btn-success save_button_css"
+                    [disabled]="!createBookForm.valid">Save</button>
+                  <p *ngIf="error" class="text-danger">{{ errorMessage}}</p>
+                </div>
+              </div>
+          
+        </form>
+    </div>
+</div>
+</div>

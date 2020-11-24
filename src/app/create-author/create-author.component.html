@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+         <form [formGroup]="createAuthorForm" (ngSubmit)="onSubmit()">
+                <div class="col-xs-10">
+                    <h4>Add Author</h4><button class="btn btn-primary create_btn_css" routerLink="/author">Author List</button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-10">
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input
+                              type="text"
+                              id="name"
+                              placeholder="name"
+                              formControlName="name"
+                              class="form-control">
+                              <span class="text-danger" *ngIf="createAuthorForm.controls['name'].touched && createAuthorForm.controls['name'].hasError('required')">
+                                Name  field is required</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">
+                          <div class="form-group">
+                            <label for="name">Username</label>
+                            <input
+                              type="text"
+                              id="name"
+                              placeholder="username"
+                              formControlName="username"
+                              class="form-control">
+                              <span class="text-danger" *ngIf="createAuthorForm.controls['username'].touched && createAuthorForm.controls['username'].hasError('required')">
+                                Username  field is required</span>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-10">
+                          <button
+                            type="submit"
+                            class="btn btn-success save_button_css"
+                            [disabled]="!createAuthorForm.valid"
+                            >Save</button>
+                          <p *ngIf="error" class="text-danger">{{ errorMessage}}</p>
+                        </div>
+                      </div>
+            </form>
+        </div>
+    </div>
+</div>
